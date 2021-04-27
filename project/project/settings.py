@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.flatpages',
 
     'NewsPaper',
+    'simpleapp',
 ]
 
 SITE_ID = 1

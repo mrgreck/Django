@@ -1,0 +1,18 @@
+{% extends 'flatpages/default.html' %}
+{% load filters %}
+
+
+{% block title %}
+News
+{% endblock title %}
+
+
+{% block content %}
+<h1>{{ post.heading|censor:'тест' }}</h1>
+
+<h5>{{post.created_time|date:'d M Y'}} {{post.created_time|date:'h'}}:{{post.created_time|date:'m'}}</h5>
+
+<p>{{post.text|censor:'тест'}}</p>
+{{post.id}}
+
+{% endblock content %}
