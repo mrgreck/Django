@@ -13,11 +13,6 @@ Post_type = [
     (news, 'Новости'),
     (post, 'Статья')
 ]
-#from NewsPaper.models import *
-#Author1 = Author.objects.get(rating=0)
-#Author1.update_rating
-
-
 
 class Author(models.Model):
     user = models.OneToOneField(User,on_delete = models.CASCADE )
@@ -75,6 +70,9 @@ class Post(models.Model):
         self.rating -= 1
         self.save()
         return f'Рейтинг: {self.rating}'
+
+    def get_absolute_url(self):  # добавим абсолютный путь чтобы после создания нас перебрасывало на страницу с товаром
+        return f'/news/{self.id}'
 
 
 class PostCategory(models.Model):

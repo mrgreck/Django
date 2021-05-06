@@ -2,3 +2,8 @@
 
 /.idea/
 /project/simpleapp/
+project/templates/product.html
+project/templates/product_list.html
+project/templates/sample_app/product_detail.html
+project/templates/sample_app/product_delete.html
+project/templates/sample_app/product_create.html

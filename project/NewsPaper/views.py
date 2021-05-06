@@ -1,22 +1,50 @@
-from django.views.generic import ListView,DetailView
+from django.views.generic import ListView,DetailView,CreateView, UpdateView,DeleteView
 from .models import Post
-from datetime import datetime
+
+from .filters import PostFilter
+from .forms import PostForm
 
 class PostList(ListView):
     model = Post
     template_name = 'news.html'
     context_object_name = 'posts'
     queryset = Post.objects.order_by('-id')
+    paginate_by = 1
+
+
 
 class PostDetail(DetailView):
     model = Post
-    template_name = 'd_news.html'
+    template_name = 'NewsPaper/news_d.html'
     context_object_name = 'post'
+
+class PostSearch(ListView):
+    model = Post
+    template_name = 'NewsPaper/search.html'
+    context_object_name = 'posts'
+    queryset = Post.objects.order_by('-id')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['time_now'] = datetime.utcnow()  # добавим переменную текущей даты time_now
+        context['filter'] = PostFilter(self.request.GET, queryset=self.get_queryset()) # вписываем наш фильтр в контекст
         return context
 
+class PostCreateView(CreateView):
+    template_name = 'NewsPaper/post_create.html'
+    form_class = PostForm
+
+class PostUpdateView(UpdateView):
+    template_name = 'NewsPaper/post_create.html'
+    form_class = PostForm
+
+
+    def get_object(self, **kwargs):
+        id = self.kwargs.get('pk')
+        return Post.objects.get(pk=id)
+
+class PostDeleteView(DeleteView):
+    template_name = 'NewsPaper/post_delete.html'
+    queryset = Post.objects.all()
+    success_url = '/news/'
 
 
