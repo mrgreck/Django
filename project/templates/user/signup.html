@@ -1,0 +1,21 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+<h2> Войти в систему </h2>
+<form method="post">
+{% csrf_token %}
+    <p>Username:{{form.username}}</p>
+    <p>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</p>
+    <br>
+    <p>Password:{{form.password1}}</p>
+    <p>Repeat password:{{form.password2}}</p>
+    <ul>
+        <li>Your password can’t be too similar to your other personal information.</li>
+        <li>Your password must contain at least 8 characters.</li>
+        <li>Your password can’t be a commonly used password.</li>
+        <li>Your password can’t be entirely numeric.</li>
+    </ul>
+
+<input type="submit" value="Продолжить">
+</form>
+{% endblock %}

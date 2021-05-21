@@ -1,0 +1,19 @@
+{% extends 'flatpages/default.html' %}
+
+
+
+{% block title %}
+Profile
+{% endblock title %}
+
+
+{% block content %}
+<h3>Никнейм: {{request.user.username}}</h3>
+
+
+
+<button> <a href="{%url 'GiveAuthor'%}">стать автором</a> </button>
+<button> <a href="{%url 'EditUser' user.id%}">edit</a> </button>
+<button> <a href="logout/">Выйти</a> </button>
+
+{% endblock content %}

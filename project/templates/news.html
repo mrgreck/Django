@@ -10,12 +10,12 @@ Products
 {% block content %}
 <a href="{% url 'search' %}">сортировка</a>
 <br>
-<a href="{% url 'add' %}">создать пост</a>
+<a href="{% url 'AddPost' %}">создать пост</a>
 <hr>
 {% for post in posts%}
     <h1><a href="{% url 'news_d' post.id %}">{{ post.heading|censor:'тест' }}</a></h1>
-    <a href="{% url 'edit' post.id %}">редактировать</a>
-    <a href="{% url 'delete' post.id %}">удалить</a>
+    <a href="{% url 'EditPost' post.id %}">редактировать</a>
+    <a href="{% url 'DeletePost' post.id %}">удалить</a>
 
     <h5>{{post.created_time}}</h5>
 

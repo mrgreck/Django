@@ -1,0 +1,21 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %}
+EditProfile
+{% endblock title %}
+
+
+{% block content %}
+{%if request.user.username == user.username %}
+{{request.user.username}}
+{{ user.username }}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.username }} <!-- Теперь нам нужна только готовая форма и кнопка -->
+    <input type="submit" value="Добавить товар">
+</form>
+{%else%}
+<h1>Как ты сюда попал?</h1>
+
+{%endif%}
+{% endblock content %}

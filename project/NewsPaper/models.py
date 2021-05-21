@@ -34,12 +34,17 @@ class Author(models.Model):
         self.rating = result
         print(f'Рейтинг автора:{result}')
         return self.save()
+    def __str__(self):
+        return self.user.username
 
 
 
 
 class Category(models.Model):
     name = models.CharField(max_length=255, unique = True)
+
+    def __str__(self):
+        return self.name
 
 class Post(models.Model):
     author = models.ForeignKey(Author, on_delete = models.CASCADE)
@@ -72,7 +77,7 @@ class Post(models.Model):
         return f'Рейтинг: {self.rating}'
 
     def get_absolute_url(self):  # добавим абсолютный путь чтобы после создания нас перебрасывало на страницу с товаром
-        return f'/news/{self.id}'
+        return f'/{self.id}'
 
 
 class PostCategory(models.Model):

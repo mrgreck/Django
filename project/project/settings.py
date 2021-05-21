@@ -25,7 +25,7 @@ SECRET_KEY = '7q!2cw%*7jn4t*ya@q2$!y%&r^ia(7+jmn^$i&^ib&eha_)r4v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
 
+
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django_filters',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 
     'NewsPaper',
     'simpleapp',
+    'user'
 ]
 
 SITE_ID = 1
@@ -75,6 +77,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -110,6 +114,8 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+
+
 ]
 
 
@@ -135,3 +141,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'profile'
+
+SITE_ID = 1
+
