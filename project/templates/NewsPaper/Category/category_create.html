@@ -1,0 +1,14 @@
+{% extends 'flatpages/default.html' %}
+
+{% block title %} Category {% endblock title %}
+
+{% block content %}
+<h3>категория:</h3>
+<form method="POST">
+    {% csrf_token %}
+     <!-- Теперь нам нужна только готовая форма и кнопка -->
+    {{form}}
+
+    <input type="submit" value="Добавить категорию">
+</form>
+{% endblock content %}

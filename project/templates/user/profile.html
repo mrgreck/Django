@@ -9,6 +9,8 @@ Profile
 
 {% block content %}
 <h3>Никнейм: {{request.user.username}}</h3>
+<h3>электронная почта: {{request.user.email}}</h3>
+<h3>пороль: {{request.user.password}}</h3>
 
 
 
@@ -19,6 +21,7 @@ Profile
 <br>
 <br>
 <br>
+{%if   is_not_author%}
 <button> <a href="{%url 'GiveAuthor'%}">стать автором</a> </button>
-
+{%endif%}
 {% endblock content %}

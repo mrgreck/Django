@@ -1,0 +1,24 @@
+{% extends 'flatpages/default.html' %}
+
+
+
+{% block title %}
+Category
+{% endblock title %}
+
+
+{% block content %}
+<h1>{{ category.name }}</h1>
+{%if is_author %}
+<button><a href="{%url 'category_edit' category.id%}">редакртроваь</a></button>
+<button><a href="{%url 'category_delete' category.id%}">удалить</a></button>
+{%else%}
+<br>
+<br>
+<p>чтобы редактировать котигоию нужно быть автором</p>
+{%endif%}
+
+
+
+
+{% endblock content %}

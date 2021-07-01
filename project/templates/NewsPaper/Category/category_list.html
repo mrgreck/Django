@@ -1,29 +1,26 @@
 {% extends 'flatpages/default.html' %}
-{% load filters %}
 
 <!-- Название у нас будет proudcts -->
 {% block title %}
-Products
+Category
 {% endblock title %}
 
 <!-- В контенте на странице мы выводим все товары -->
 {% block content %}
-<a href="{% url 'search' %}">сортировка</a>
-<br>
 {%if is_author%}
-<a href="{% url 'AddPost' %}">создать пост</a>
-{%endif%}
+<a href="{% url 'category_create' %}">создать категорию</a>
 <hr>
-{% for post in posts%}
-    <h1><a href="{% url 'news_d' post.id %}">{{ post.heading|censor:'тест' }}</a></h1>
-    {%if is_author%}
-    <a href="{% url 'EditPost' post.id %}">редактировать</a>
-    <a href="{% url 'DeletePost' post.id %}">удалить</a>
-    {%endif%}
-    <h5>{{post.created_time}}</h5>
+{%endif%}
+{% for c in Category%}
+    <h1><a href="{%url 'category_detail' c.id%}">{{ c.name}}</a></h1>
 
-    <p>{{post.text|truncatechars:50|censor:'тест'}}</p>
+    <h2><a href="/category/{{c.pk}}/followers_to_category/">подписаться </a></h2>
+
+
+    {{Category.objects.followers}}
+
 {%endfor%}
+<br>
 
 {% if is_paginated %}
 
