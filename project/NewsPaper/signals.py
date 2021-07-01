@@ -13,13 +13,10 @@ def notify_managers_post(sender, instance, action, **kwargs):
 
     mmm = instance.category.values('followers__email')
 
-
     if action == "post_add":
-        print(instance.category.values('id')[0]['id'])
-        print(instance.category.values('followers__email'))
 
         for m in mmm:
-            print(1)
+
             m = m['followers__email']
             if not m == '':
 
@@ -36,8 +33,7 @@ def notify_managers_post(sender, instance, action, **kwargs):
                     from_email='MrGreck135@yandex.ru',  # здесь указываете почту, с которой будете отправлять (об этом попозже)
                     recipient_list=[m]  # здесь список получателей. Например, секретарь, сам врач и т. д.
                 )
-                print(2)
-            print(3)
+
         category_id = instance.category.values('id')[0]['id']
         if PostWeek.objects.filter(category=category_id).exists():
             PostWeek.objects.get(category=category_id).post.add(instance)
