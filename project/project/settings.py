@@ -13,6 +13,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import django.utils.log
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -156,3 +158,91 @@ EMAIL_PORT = 465 # порт smtp сервера тоже одинаковый
 EMAIL_HOST_USER = 'mrgreck135' # ваше имя пользователя, например если ваша почта user@yandex.ru, то сюда надо писать user, иными словами, это всё то что идёт до собаки
 EMAIL_HOST_PASSWORD = 'vwcluofckrbmltft' # пароль от почты
 EMAIL_USE_SSL = True # Яндекс использует ssl, подробнее о том, что это, почитайте на Википедии, но включать его здесь обязательно
+
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'simple': {
+            'format': ' {asctime} {levelname} {message}'
+        },
+        'war': {
+            'format': ' {asctime} {levelname} {message} {pathname}'
+        },
+        'err': {
+            'format': ' {asctime} {levelname} {message} {pathname} {exc_info}'
+        },
+        'gen': {
+            'format': ' {asctime} {levelname} {module} {message}'
+        },
+        'err_m': {
+            'format': ' {asctime} {levelname} {message} {pathname}'
+        },
+    },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+    },
+    'handlers': {
+        'debug': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+            'filters': ['require_debug_true'],
+        },
+        'warning': {
+            'level': 'WARNING',
+            'class': 'logging.StreamHandler',
+            'formatter': 'war',
+            'filters': ['require_debug_true'],
+        },
+        'error': {
+            'level': 'ERROR',
+            'class': 'logging.StreamHandler',
+            'formatter': 'err',
+            'filters': ['require_debug_true'],
+        },
+        'general_log': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'formatter': 'gen',
+            'filename': '/path/to/django/general.log',
+            'filters': ['require_debug_false'],
+        },
+        'errors_log': {
+            'level': 'ERROR',
+            'class': 'logging.FileHandler',
+            'formatter': 'err',
+            'filename': '/path/to/django/errors.log',
+        },
+        'security_log': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'formatter': '',
+            'filename': '/path/to/django/security.log',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'formatter': 'err_m',
+            'filters': ['require_debug_false'],
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['debug', 'warning', 'error', 'general_log', 'errors_log'],
+            'propagate': True,
+        },
+        'django.security': {
+            'handlers': ['security_log'],
+            'propagate': True,
+        },
+    }
+}
+
