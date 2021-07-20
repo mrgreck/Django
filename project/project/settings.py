@@ -156,29 +156,27 @@ EMAIL_PORT = 465 # порт smtp сервера тоже одинаковый
 EMAIL_HOST_USER = 'mrgreck135' # ваше имя пользователя, например если ваша почта user@yandex.ru, то сюда надо писать user, иными словами, это всё то что идёт до собаки
 EMAIL_HOST_PASSWORD = 'vwcluofckrbmltft' # пароль от почты
 EMAIL_USE_SSL = True # Яндекс использует ssl, подробнее о том, что это, почитайте на Википедии, но включать его здесь обязательно
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 
-'''''
+'''
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
         'simple': {
-            'format': ' {asctime} {levelname} {message}',
+            'format': ' {asctime} {levelname} {message}'
         },
         'war': {
-            'format': ' {asctime} {levelname} {message} {pathname}',
+            'format': ' {asctime} {levelname} {message} {pathname}'
         },
         'err': {
-            'format': ' {asctime} {levelname} {message} {pathname} {exc_info}',
+            'format': ' {asctime} {levelname} {message} {pathname} {exc_info}'
         },
         'gen': {
-            'format': ' {asctime} {levelname} {module} {message}',
+            'format': ' {asctime} {levelname} {module} {message}'
         },
         'err_m': {
-            'format': ' {asctime} {levelname} {message} {pathname}',
+            'format': ' {asctime} {levelname} {message} {pathname}'
         },
     },
     'filters': {
@@ -245,8 +243,6 @@ LOGGING = {
         },
     }
 }
+
 '''
-=======
->>>>>>> parent of bee8027 (logger)
-=======
->>>>>>> parent of bee8027 (logger)
+
