@@ -13,8 +13,6 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import django.utils.log
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -158,6 +156,7 @@ EMAIL_PORT = 465 # порт smtp сервера тоже одинаковый
 EMAIL_HOST_USER = 'mrgreck135' # ваше имя пользователя, например если ваша почта user@yandex.ru, то сюда надо писать user, иными словами, это всё то что идёт до собаки
 EMAIL_HOST_PASSWORD = 'vwcluofckrbmltft' # пароль от почты
 EMAIL_USE_SSL = True # Яндекс использует ssl, подробнее о том, что это, почитайте на Википедии, но включать его здесь обязательно
+<<<<<<< HEAD
 
 
 '''''
@@ -246,3 +245,5 @@ LOGGING = {
     }
 }
 '''
+=======
+>>>>>>> parent of bee8027 (logger)
