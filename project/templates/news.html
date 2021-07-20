@@ -1,6 +1,5 @@
 {% extends 'flatpages/default.html' %}
 {% load filters %}
-{% load static %}
 
 <!-- Название у нас будет proudcts -->
 {% block title %}
@@ -14,12 +13,6 @@ Products
 {%if is_author%}
 <a href="{% url 'AddPost' %}">создать пост</a>
 {%endif%}
-
-
-<video controls width="710" height="408" poster="{% static 'files/1.jpg' %}" preload="none">
-    <source src="{% static 'files/Darth.mp4' %}" type="video/mp4">
-</video>
-
 <hr>
 {% for post in posts%}
     <h1><a href="{% url 'news_d' post.id %}">{{ post.heading|censor:'тест' }}</a></h1>
