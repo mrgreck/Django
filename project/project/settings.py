@@ -158,6 +158,7 @@ EMAIL_HOST_PASSWORD = 'vwcluofckrbmltft' # пароль от почты
 EMAIL_USE_SSL = True # Яндекс использует ssl, подробнее о том, что это, почитайте на Википедии, но включать его здесь обязательно
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 '''''
@@ -246,7 +247,4 @@ LOGGING = {
     }
 }
 '''
-=======
->>>>>>> parent of bee8027 (logger)
-=======
->>>>>>> parent of bee8027 (logger)
+
