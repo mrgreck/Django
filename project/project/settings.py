@@ -160,25 +160,25 @@ EMAIL_HOST_PASSWORD = 'vwcluofckrbmltft' # пароль от почты
 EMAIL_USE_SSL = True # Яндекс использует ssl, подробнее о том, что это, почитайте на Википедии, но включать его здесь обязательно
 
 
-
+'''''
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
         'simple': {
-            'format': ' {asctime} {levelname} {message}'
+            'format': ' {asctime} {levelname} {message}',
         },
         'war': {
-            'format': ' {asctime} {levelname} {message} {pathname}'
+            'format': ' {asctime} {levelname} {message} {pathname}',
         },
         'err': {
-            'format': ' {asctime} {levelname} {message} {pathname} {exc_info}'
+            'format': ' {asctime} {levelname} {message} {pathname} {exc_info}',
         },
         'gen': {
-            'format': ' {asctime} {levelname} {module} {message}'
+            'format': ' {asctime} {levelname} {module} {message}',
         },
         'err_m': {
-            'format': ' {asctime} {levelname} {message} {pathname}'
+            'format': ' {asctime} {levelname} {message} {pathname}',
         },
     },
     'filters': {
@@ -245,4 +245,4 @@ LOGGING = {
         },
     }
 }
-
+'''
