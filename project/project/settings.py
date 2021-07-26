@@ -122,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -158,25 +158,30 @@ EMAIL_HOST_PASSWORD = 'vwcluofckrbmltft' # пароль от почты
 EMAIL_USE_SSL = True # Яндекс использует ssl, подробнее о том, что это, почитайте на Википедии, но включать его здесь обязательно
 
 
-'''
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
         'simple': {
-            'format': ' {asctime} {levelname} {message}'
+            'format': ' {asctime} {levelname} {message}',
+            'style': '{',
         },
         'war': {
-            'format': ' {asctime} {levelname} {message} {pathname}'
+            'format': ' {asctime} {levelname} {message} {pathname}',
+            'style': '{',
         },
         'err': {
-            'format': ' {asctime} {levelname} {message} {pathname} {exc_info}'
+            'format': ' {asctime} {levelname} {message} {pathname} {exc_info}',
+            'style': '{',
         },
         'gen': {
-            'format': ' {asctime} {levelname} {module} {message}'
+            'format': ' {asctime} {levelname} {module} {message}',
+            'style': '{',
         },
         'err_m': {
-            'format': ' {asctime} {levelname} {message} {pathname}'
+            'format': ' {asctime} {levelname} {message} {pathname}',
+            'style': '{',
         },
     },
     'filters': {
@@ -210,27 +215,27 @@ LOGGING = {
             'level': 'INFO',
             'class': 'logging.FileHandler',
             'formatter': 'gen',
-            'filename': '/path/to/django/general.log',
+            'filename': 'general.log',
             'filters': ['require_debug_false'],
         },
         'errors_log': {
             'level': 'ERROR',
             'class': 'logging.FileHandler',
             'formatter': 'err',
-            'filename': '/path/to/django/errors.log',
+            'filename': 'errors.log',
         },
         'security_log': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
             'formatter': '',
-            'filename': '/path/to/django/security.log',
+            'filename': 'security.log',
         },
         'mail_admins': {
             'level': 'ERROR',
             'class': 'django.utils.log.AdminEmailHandler',
             'formatter': 'err_m',
             'filters': ['require_debug_false'],
-        }
+        },
     },
     'loggers': {
         'django': {
@@ -244,5 +249,5 @@ LOGGING = {
     }
 }
 
-'''
+
 
